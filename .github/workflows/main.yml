@@ -12,6 +12,7 @@ jobs:
     strategy:
       matrix:
         SELENIUM_RELEASE: ["4.0.0"]
+        MAVEN_VERSION: ["3"]
         MAVEN_RELEASE: ["3.6.3", "3.8.3"]
     steps:
       - name: Checkout 
@@ -29,7 +30,7 @@ jobs:
           context: .
           push: true
           build-args: |
-            MAVEN_RELEASE=${{ matrix.MAVEN_RELEASE }}
             SELENIUM_RELEASE=${{ matrix.SELENIUM_RELEASE }}
-            MAVEN_VERSION="3"
+            MAVEN_VERSION=${{ matrix.MAVEN_VERSION }}
+            MAVEN_RELEASE=${{ matrix.MAVEN_RELEASE }}
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/maven:${{ matrix.MAVEN_RELEASE }}-selenium${{ matrix.SELENIUM_RELEASE }}
