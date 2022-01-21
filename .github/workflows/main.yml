@@ -31,4 +31,5 @@ jobs:
           build-args: |
             MAVEN_RELEASE=${{ matrix.MAVEN_RELEASE }}
             SELENIUM_RELEASE=${{ matrix.SELENIUM_RELEASE }}
+            MAVEN_VERSION="3"
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/maven:${{ matrix.MAVEN_RELEASE }}-selenium${{ matrix.SELENIUM_RELEASE }}
